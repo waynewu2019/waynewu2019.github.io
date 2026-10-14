@@ -117,11 +117,11 @@ function showGate(info) {
 }
 
 async function loadProtectedContent() {
-  const res = await sbFetchProtected('/.netlify/functions/portal-content');
+  // Self-contained gating: content ships as a static fragment in the package
+  // (no Netlify functions). Any authenticated partner session can read it.
+  const res = await fetch('protected/portal.html');
   if (!res || res.status !== 200) {
-    let info = null;
-    try { info = res ? await res.json() : null; } catch (e) {}
-    showGate(info);
+    showGate(null);
     return;
   }
   const html = await res.text();

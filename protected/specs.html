@@ -1,0 +1,32 @@
+<h2>Gen1 design targets</h2>
+<p>These are architecture design targets for the Gen1 validation platform — not silicon-measured
+values. Targets may change as validation proceeds; measured results are published with their
+configuration when they exist.</p>
+<table style="width:100%;border-collapse:collapse;margin:16px 0;">
+  <tr style="border-top:2px solid #0A0E1A;border-bottom:1px solid #0A0E1A;">
+    <th style="text-align:left;padding:8px 6px;">Parameter</th>
+    <th style="text-align:left;padding:8px 6px;">Gen1 design target</th>
+  </tr>
+  <tr style="border-bottom:1px solid #e5e7eb;"><td style="padding:8px 6px;"><strong>Compute array</strong></td><td style="padding:8px 6px;">32,768 compute units per MPU (256 × 128 baseline), FP16 datapath</td></tr>
+  <tr style="border-bottom:1px solid #e5e7eb;"><td style="padding:8px 6px;"><strong>Process</strong></td><td style="padding:8px 6px;">TSMC N5P-class</td></tr>
+  <tr style="border-bottom:1px solid #e5e7eb;"><td style="padding:8px 6px;"><strong>On-chip memory</strong></td><td style="padding:8px 6px;">~384 MB SRAM per MPU (baseline)</td></tr>
+  <tr style="border-bottom:1px solid #e5e7eb;"><td style="padding:8px 6px;"><strong>External memory</strong></td><td style="padding:8px 6px;">Commodity DRAM (GDDR7-class). No HBM</td></tr>
+  <tr style="border-bottom:1px solid #e5e7eb;"><td style="padding:8px 6px;"><strong>Packaging</strong></td><td style="padding:8px 6px;">Standard packaging; no advanced packaging required</td></tr>
+  <tr style="border-bottom:1px solid #e5e7eb;"><td style="padding:8px 6px;"><strong>Interconnect</strong></td><td style="padding:8px 6px;">SIF state fabric on standard PCIe-class SerDes PHYs; fixed latency, compile-time configured; &lt;200 ns single hop within a domain</td></tr>
+  <tr style="border-bottom:1px solid #e5e7eb;"><td style="padding:8px 6px;"><strong>Scale</strong></td><td style="padding:8px 6px;">64 MPUs per state domain (one rack); the compiler sees one array</td></tr>
+  <tr style="border-bottom:2px solid #0A0E1A;"><td style="padding:8px 6px;"><strong>Scheduling</strong></td><td style="padding:8px 6px;">Compile-time. No runtime routing, no cache coherence, no transaction layer in the fabric</td></tr>
+</table>
+
+<h2>State path</h2>
+<p>The unit of movement is bounded state, on a compile-time schedule: state leaves a compute node
+(MPU), crosses the SIF fabric and a fixed-latency optical link, and arrives at the next node —
+MPU → SIF → fiber → SIF → MPU. The same path, for the same duration, every cycle.</p>
+
+<h2>Validation platform configuration</h2>
+<ul>
+  <li>Compute nodes: AMD Alveo V80-class FPGA cards (MPU-Lite emulation)</li>
+  <li>Fabric node: AMD Versal VPK120 (SIF-Lite emulation)</li>
+  <li>Inter-node link: single-mode fiber, spool-swap lengths 10 / 50 / 100 / 500 m</li>
+  <li>Proof-of-concept compiler for compile-time state-path scheduling</li>
+</ul>
+<p>Full bench configuration for every published measurement accompanies the result.</p>

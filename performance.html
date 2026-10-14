@@ -116,11 +116,11 @@ function showPerfGate(info) {
 }
 
 async function loadPerfContent() {
-  const res = await sbFetchProtected('/.netlify/functions/performance-content');
+  // Self-contained gating: content ships as a static fragment in the package
+  // (no Netlify functions). Any authenticated partner session can read it.
+  const res = await fetch('protected/performance.html');
   if (!res || res.status !== 200) {
-    let info = null;
-    try { info = res ? await res.json() : null; } catch (e) {}
-    showPerfGate(info);
+    showPerfGate(null);
     return;
   }
   const html = await res.text();

@@ -116,11 +116,11 @@ function showSpecsGate(info) {
 }
 
 async function loadSpecsContent() {
-  const res = await sbFetchProtected('/.netlify/functions/specs-content');
+  // Self-contained gating: content ships as a static fragment in the package
+  // (no Netlify functions). Any authenticated partner session can read it.
+  const res = await fetch('protected/specs.html');
   if (!res || res.status !== 200) {
-    let info = null;
-    try { info = res ? await res.json() : null; } catch (e) {}
-    showSpecsGate(info);
+    showSpecsGate(null);
     return;
   }
   const html = await res.text();

@@ -1,0 +1,17 @@
+<h2>Gen1 programme detail</h2>
+<p>Milestones of record for the Gen1 validation programme. Dates are targets as of
+14 October 2026 and move only by explicit decision.</p>
+<table style="width:100%;border-collapse:collapse;margin:16px 0;">
+  <tr style="border-top:2px solid #0A0E1A;border-bottom:1px solid #0A0E1A;">
+    <th style="text-align:left;padding:8px 6px;">When</th><th style="text-align:left;padding:8px 6px;">Milestone</th><th style="text-align:left;padding:8px 6px;">Detail / exit criterion</th>
+  </tr>
+  <tr style="border-bottom:1px solid #e5e7eb;"><td style="padding:8px 6px;">Now → 19 Oct</td><td style="padding:8px 6px;">SIF-Lite fabric drop (Wolley)</td><td style="padding:8px 6px;">SIF-Lite sled firmware &amp; flit path delivered for bench bring-up</td></tr>
+  <tr style="border-bottom:1px solid #e5e7eb;"><td style="padding:8px 6px;">20 Oct</td><td style="padding:8px 6px;">MPU-Lite compute cards (ePIC)</td><td style="padding:8px 6px;">2 × V80-class MPU-Lite nodes received; VPK120 SIF-Lite nodes on hand</td></tr>
+  <tr style="border-bottom:1px solid #e5e7eb;"><td style="padding:8px 6px;">26–30 Oct</td><td style="padding:8px 6px;">Integration week</td><td style="padding:8px 6px;">Two-node path live on the bench: host image load, one layer executes, state crosses V80 → SIF-Lite → fiber → SIF-Lite → V80</td></tr>
+  <tr style="border-bottom:1px solid #e5e7eb;"><td style="padding:8px 6px;">30 Oct</td><td style="padding:8px 6px;"><strong>Go / no-go — architecture simulation &amp; validation POC complete</strong></td><td style="padding:8px 6px;">Identical cycle count every run; spool swap 10/50/100/500 m shifts latency by the predicted amount; no jitter, no retry</td></tr>
+  <tr style="border-bottom:1px solid #e5e7eb;"><td style="padding:8px 6px;">November</td><td style="padding:8px 6px;"><strong>Multi-node FPGA proof-of-concept build — complete end of November</strong></td><td style="padding:8px 6px;">Hardened two-node platform; measurement harness; reproducible runs with logged configuration</td></tr>
+  <tr style="border-bottom:1px solid #e5e7eb;"><td style="padding:8px 6px;">December</td><td style="padding:8px 6px;">First results published as measured</td><td style="padding:8px 6px;">Fixed-latency state transfer between nodes; latency-determinism and state-residency measurements, each with its configuration</td></tr>
+  <tr style="border-bottom:2px solid #0A0E1A;"><td style="padding:8px 6px;">2027</td><td style="padding:8px 6px;">Scale-out</td><td style="padding:8px 6px;">64-chip domain equivalent; broader workload characterization; workload-level performance &amp; economics</td></tr>
+</table>
+<p>Gen1 closes the architecture. Gen2 — production silicon for MoE, long-context and agentic
+workloads — moves to planning with a target of record set after Gen1 closes.</p>

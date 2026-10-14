@@ -12,22 +12,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 <link href="styles.css" rel="stylesheet"/>
 <style>
-  .admin-wrap { max-width: 960px; margin: 0 auto; padding: 48px 20px 80px; }
-  .admin-table { width: 100%; border-collapse: collapse; font-size: 13.5px; margin-top: 24px; }
-  .admin-table th, .admin-table td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border, #e4e4e7); }
-  .admin-table th { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: #888; }
-  .admin-form { display: grid; gap: 12px; max-width: 480px; margin-top: 16px; }
-  .admin-form input[type=text], .admin-form input[type=email], .admin-form input[type=date] {
-    padding: 10px 12px; border: 1px solid var(--border, #ccc); border-radius: 8px; font-size: 14px; width: 100%;
-  }
-  .admin-checks { display: flex; gap: 16px; flex-wrap: wrap; font-size: 13px; }
-  .admin-checks label { display: flex; align-items: center; gap: 6px; }
-  .pill { font-size: 11px; padding: 3px 8px; border-radius: 20px; font-weight: 600; }
-  .pill-active { background: #dcfce7; color: #166534; }
-  .pill-revoked { background: #fee2e2; color: #991b1b; }
-  .pill-expired { background: #fef3c7; color: #92400e; }
-  .btn-small { font-size: 12px; padding: 6px 12px; }
-  .action-cell { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; max-width: 320px; }
+  .admin-wrap { max-width: 760px; margin: 0 auto; padding: 48px 20px 80px; }
+  .admin-card { border: 1px solid var(--border, #e4e4e7); border-radius: 12px; padding: 24px; margin-top: 20px; background: #fff; }
+  .admin-card h3 { margin: 0 0 8px; font-size: 15px; }
+  .admin-card p, .admin-card li { font-size: 13.5px; color: var(--body, #444); line-height: 1.6; }
+  .admin-card ol, .admin-card ul { padding-left: 20px; margin: 8px 0; }
+  .admin-card code { background: #F4F5F7; padding: 1px 6px; border-radius: 4px; font-size: 12.5px; }
 </style>
 </head>
 <body class="portal-page">
@@ -48,7 +38,7 @@
 <section class="dark-section" style="min-height:60vh;display:flex;align-items:center;">
 <div class="wrap" style="text-align:center;">
 <h1 style="color:#fff;font-size:clamp(24px,3vw,36px);margin-bottom:12px;">Partner Admin</h1>
-<p style="color:var(--body-on-dark);margin-bottom:28px;">Sign in with an admin account to manage NDA partner access.</p>
+<p style="color:var(--body-on-dark);margin-bottom:28px;">Sign in with an admin account.</p>
 <div id="admin-login-error" style="display:none;color:#f87171;font-size:13px;margin-bottom:10px;"></div>
 <input class="portal-input" id="admin-email" placeholder="you@company.com" type="email" style="margin-bottom:10px;max-width:320px;"/>
 <input class="portal-input" id="admin-password-field" placeholder="Password" type="password" style="margin-bottom:14px;max-width:320px;"/>
@@ -61,9 +51,7 @@
 <section class="dark-section" style="min-height:60vh;display:flex;align-items:center;">
 <div class="wrap" style="text-align:center;">
 <h1 style="color:#fff;font-size:clamp(22px,2.6vw,30px);margin-bottom:12px;">Not authorized</h1>
-<p style="color:var(--body-on-dark);margin-bottom:20px;">You're logged in, but this account doesn't have admin access.</p>
-<button class="btn btn-outline-light" id="admin-bootstrap-btn">Try self-elevate (allowlisted accounts only)</button>
-<p id="admin-bootstrap-result" style="color:var(--body-on-dark);margin-top:16px;font-size:13px;"></p>
+<p style="color:var(--body-on-dark);margin-bottom:20px;">You're signed in, but this account doesn't have admin access.</p>
 </div>
 </section>
 </div>
@@ -71,39 +59,57 @@
 <div id="admin-panel" style="display:none;">
 <div class="admin-wrap">
 <h1 style="font-size:clamp(22px,2.6vw,30px);margin-bottom:8px;">Partner Admin</h1>
-<p style="color:var(--body);margin-bottom:8px;">Manage who has NDA access, per page, with optional expiry.</p>
-<button class="btn btn-outline" id="export-log-btn">Export access log (CSV)</button>
+<p style="color:var(--body);">Protected content now ships inside the site itself and unlocks for any
+signed-in partner account — there are no server functions to manage. Partner accounts are managed
+directly in the Supabase dashboard.</p>
 
-<h2 style="font-size:18px;margin-top:40px;margin-bottom:4px;">Add / update a partner</h2>
-<form class="admin-form" id="invite-form">
-  <input type="email" id="f-email" placeholder="partner@company.com" required/>
-  <input type="text" id="f-org" placeholder="Organization (optional)"/>
-  <label style="font-size:13px;color:#666;">Expires (optional)
-    <input type="date" id="f-expires"/>
-  </label>
-  <label style="font-size:13px;color:#666;">Password (optional &mdash; leave blank to auto-generate)
-    <input type="text" id="f-password" placeholder="Leave blank to auto-generate" minlength="8" autocomplete="new-password"/>
-  </label>
-  <p id="f-password-hint" style="font-size:12px;color:#999;margin:-8px 0 0;">If set, must be at least 8 characters.</p>
-  <div class="admin-checks">
-    <label><input type="checkbox" id="f-portal" checked/> Portal</label>
-    <label><input type="checkbox" id="f-specs" checked/> Specs</label>
-    <label><input type="checkbox" id="f-performance" checked/> Performance</label>
-    <label><input type="checkbox" id="f-roadmap" checked/> Roadmap detail</label>
-    <label style="border-left:1px solid var(--border,#ccc);padding-left:16px;"><input type="checkbox" id="f-admin"/> Admin (manage this panel)</label>
-  </div>
-  <button class="btn btn-primary" type="submit" style="width:fit-content;">Invite / Save</button>
-  <p id="invite-result" style="font-size:13px;"></p>
-</form>
-
-<h2 style="font-size:18px;margin-top:48px;">Current partners</h2>
-<table class="admin-table" id="partners-table">
-<thead><tr><th>Email</th><th>Org</th><th>Access</th><th>Expires</th><th>Status</th><th></th></tr></thead>
-<tbody id="partners-tbody"><tr><td colspan="6">Loading...</td></tr></tbody>
-</table>
-</div>
+<div class="admin-card">
+<h3>How access works now</h3>
+<ul>
+  <li>Anyone with an account in Supabase Auth can sign in on <code>/portal</code>, <code>/specs</code>,
+  <code>/performance</code> and the roadmap detail view, and read the protected content bundled with the site.</li>
+  <li>This admin page is restricted to accounts with the <code>admin</code> role (or the admin email).</li>
+  <li>Nothing else needs configuration on the hosting side — no Netlify functions, no env keys.</li>
+</ul>
 </div>
 
+<div class="admin-card">
+<h3>Grant access to a new partner</h3>
+<ol>
+  <li>Open the <a href="https://supabase.com/dashboard" target="_blank" rel="noopener" style="color:#1E40D6;">Supabase dashboard</a> → your project → <strong>Authentication → Users</strong>.</li>
+  <li><strong>Add user → Create new user</strong>: enter the partner's email and a generated password, and
+  turn ON <strong>Auto Confirm User</strong>.</li>
+  <li>Send the credentials to the partner over a secure channel. Done — they can sign in immediately.</li>
+</ol>
+</div>
+
+<div class="admin-card">
+<h3>Revoke or reset</h3>
+<ul>
+  <li><strong>Revoke access:</strong> delete the user in Authentication → Users. Their login stops working instantly.</li>
+  <li><strong>Reset a password:</strong> edit the user → Send password recovery (requires SMTP configured),
+  or delete and recreate the account with a new password.</li>
+</ul>
+</div>
+
+<div class="admin-card">
+<h3>Make an account an admin</h3>
+<ol>
+  <li>Authentication → Users → click the user → <strong>Edit user</strong>.</li>
+  <li>Under <code>app_metadata</code>, set <code>{"roles": ["admin"]}</code> and save.</li>
+  <li>The user gains access to this admin page on their next sign-in. (The account
+  <code>admin@gmail.com</code> is always treated as admin.)</li>
+</ol>
+</div>
+
+<div class="admin-card">
+<h3>If sign-in fails for everyone</h3>
+<p>The site talks to the Supabase project configured in <code>supabase-auth.js</code>
+(project URL <code>sxqfjrwjozahabuppxii</code>). If that project is paused or deleted, restore it
+in the dashboard or update the two config values and redeploy. Questions: hello@symaticslab.com.</p>
+</div>
+</div>
+</div>
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -118,259 +124,10 @@ function show(id) {
 }
 
 function isAdminUser(user) {
-  const roles = (user && user.app_metadata && user.app_metadata.roles) || [];
-  return roles.includes('admin');
+  if (!user) return false;
+  const roles = (user.app_metadata && user.app_metadata.roles) || [];
+  return roles.includes('admin') || user.email === 'admin@gmail.com';
 }
-
-async function authedFetch(path, opts) {
-  const res = await sbFetchProtected(path, opts);
-  if (!res) throw new Error('No active session');
-  return res;
-}
-
-async function loadPartners() {
-  const res = await authedFetch('/.netlify/functions/admin-list');
-  const tbody = document.getElementById('partners-tbody');
-  if (!res.ok) { tbody.innerHTML = '<tr><td colspan="6">Failed to load.</td></tr>'; return; }
-  const partners = await res.json();
-  if (!partners.length) { tbody.innerHTML = '<tr><td colspan="6">No partners yet.</td></tr>'; return; }
-  tbody.innerHTML = partners.map((p, i) => {
-    const access = p.is_admin
-      ? 'Admin (full access)'
-      : (['can_portal','can_specs','can_performance','can_roadmap']
-          .filter(k => p[k]).map(k => k.replace('can_','')).join(', ') || 'none');
-    const expired = p.expires_at && new Date(p.expires_at) < new Date();
-    let statusHtml;
-    if (p.revoked) statusHtml = '<span class="pill pill-revoked">Revoked</span>';
-    else if (expired) statusHtml = '<span class="pill pill-expired">Expired</span>';
-    else statusHtml = '<span class="pill pill-active">Active</span>';
-    const rowId = 'row' + i;
-    return `<tr>
-      <td>${p.email}</td>
-      <td>${p.organization || '—'}</td>
-      <td>${access}</td>
-      <td>${p.expires_at ? p.expires_at.slice(0,10) : '—'}</td>
-      <td>${statusHtml}</td>
-      <td>
-        <div class="action-cell">
-        <button class="btn btn-outline btn-small" data-edit-toggle="${rowId}">Edit access</button>
-        ${p.revoked ? '' : `<button class="btn btn-outline btn-small" data-revoke="${p.email}">Revoke</button> <button class="btn btn-outline btn-small" data-getlink="${p.email}">Reset password</button>`}
-        <button class="btn btn-outline btn-small" data-delete="${p.email}" style="color:#dc2626;border-color:#dc2626;">Delete</button>
-        </div>
-      </td>
-    </tr>
-    <tr id="${rowId}" style="display:none;">
-      <td colspan="6" style="background:#F7F8FB;">
-        <div class="admin-form" style="max-width:600px;">
-          <input type="text" class="e-org" placeholder="Organization" value="${(p.organization || '').replace(/"/g,'&quot;')}"/>
-          <input type="date" class="e-expires" value="${p.expires_at ? p.expires_at.slice(0,10) : ''}"/>
-          <div class="admin-checks">
-            <label><input type="checkbox" class="e-portal" ${p.can_portal ? 'checked' : ''}/> Portal</label>
-            <label><input type="checkbox" class="e-specs" ${p.can_specs ? 'checked' : ''}/> Specs</label>
-            <label><input type="checkbox" class="e-performance" ${p.can_performance ? 'checked' : ''}/> Performance</label>
-            <label><input type="checkbox" class="e-roadmap" ${p.can_roadmap ? 'checked' : ''}/> Roadmap detail</label>
-            <label style="border-left:1px solid var(--border,#ccc);padding-left:16px;"><input type="checkbox" class="e-admin" ${p.is_admin ? 'checked' : ''}/> Admin</label>
-          </div>
-          <button class="btn btn-primary btn-small" data-save-edit="${p.email}" style="width:fit-content;">Save changes</button>
-          <p class="e-result" style="font-size:13px;"></p>
-        </div>
-      </td>
-    </tr>`;
-  }).join('');
-
-  tbody.querySelectorAll('[data-edit-toggle]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const row = document.getElementById(btn.dataset.editToggle);
-      row.style.display = row.style.display === 'none' ? '' : 'none';
-    });
-  });
-
-  tbody.querySelectorAll('[data-save-edit]').forEach(btn => {
-    btn.addEventListener('click', async () => {
-      const email = btn.dataset.saveEdit;
-      const row = btn.closest('tr');
-      const resultEl = row.querySelector('.e-result');
-      resultEl.textContent = 'Saving...';
-      const payload = {
-        email,
-        organization: row.querySelector('.e-org').value.trim(),
-        expires_at: row.querySelector('.e-expires').value || null,
-        can_portal: row.querySelector('.e-portal').checked,
-        can_specs: row.querySelector('.e-specs').checked,
-        can_performance: row.querySelector('.e-performance').checked,
-        can_roadmap: row.querySelector('.e-roadmap').checked,
-        is_admin: row.querySelector('.e-admin').checked
-      };
-      const res = await authedFetch('/.netlify/functions/admin-invite', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-      if (res.ok) {
-        resultEl.textContent = 'Saved.';
-        loadPartners();
-      } else {
-        const err = await res.json().catch(() => ({}));
-        resultEl.textContent = 'Failed: ' + (err.error || res.status);
-      }
-    });
-  });
-
-  tbody.querySelectorAll('[data-delete]').forEach(btn => {
-    btn.addEventListener('click', async () => {
-      if (!confirm('Permanently delete ' + btn.dataset.delete + '? This removes their record and login account entirely.')) return;
-      btn.disabled = true;
-      const res = await authedFetch('/.netlify/functions/admin-delete-partner', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: btn.dataset.delete })
-      });
-      if (res.ok) loadPartners();
-      else { alert('Failed to delete'); btn.disabled = false; }
-    });
-  });
-
-  tbody.querySelectorAll('[data-getlink]').forEach(btn => {
-    btn.addEventListener('click', async () => {
-      const custom = window.prompt('Enter a new password for ' + btn.dataset.getlink + ' (leave blank to auto-generate):', '');
-      if (custom === null) return; // cancelled
-      if (custom && custom.length < 8) { alert('Password must be at least 8 characters.'); return; }
-      btn.disabled = true;
-      btn.textContent = 'Resetting...';
-      const res = await authedFetch('/.netlify/functions/admin-get-link', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: btn.dataset.getlink, password: custom || undefined })
-      });
-      const data = await res.json().catch(() => ({}));
-      btn.disabled = false;
-      btn.textContent = 'Reset password';
-
-      let resultSpan = btn.parentElement.querySelector('.pw-result');
-      if (!resultSpan) {
-        resultSpan = document.createElement('div');
-        resultSpan.className = 'pw-result';
-        resultSpan.style.cssText = 'flex-basis:100%;font-size:12px;margin-top:4px;';
-        btn.parentElement.appendChild(resultSpan);
-      }
-
-      if (res.ok && data.newPassword) {
-        const credText = btn.dataset.getlink + '  /  ' + data.newPassword;
-        navigator.clipboard.writeText(credText).catch(() => {});
-        resultSpan.innerHTML = 'New password: <input type="text" readonly style="width:auto;display:inline-block;padding:3px 6px;font-size:12px;" value="' +
-          data.newPassword + '"> <span style="color:#16a34a;">(copied to clipboard)</span>';
-      } else {
-        resultSpan.textContent = 'Failed: ' + (data.detail || data.error || res.status);
-      }
-    });
-  });
-
-  tbody.querySelectorAll('[data-revoke]').forEach(btn => {
-    btn.addEventListener('click', async () => {
-      if (!confirm('Revoke access for ' + btn.dataset.revoke + '?')) return;
-      btn.disabled = true;
-      const res = await authedFetch('/.netlify/functions/admin-revoke', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: btn.dataset.revoke })
-      });
-      if (res.ok) loadPartners();
-      else { alert('Failed to revoke'); btn.disabled = false; }
-    });
-  });
-}
-
-function syncAdminAccessBoxes() {
-  const isAdmin = document.getElementById('f-admin').checked;
-  ['f-portal','f-specs','f-performance','f-roadmap'].forEach(id => {
-    const el = document.getElementById(id);
-    if (isAdmin) { el.checked = true; el.disabled = true; }
-    else { el.disabled = false; }
-  });
-}
-document.getElementById('f-admin').addEventListener('change', syncAdminAccessBoxes);
-syncAdminAccessBoxes();
-
-document.getElementById('invite-form').addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const resultEl = document.getElementById('invite-result');
-  resultEl.textContent = 'Saving...';
-  const manualPassword = document.getElementById('f-password').value;
-  if (manualPassword && manualPassword.length < 8) {
-    resultEl.textContent = 'Password must be at least 8 characters.';
-    return;
-  }
-  const payload = {
-    email: document.getElementById('f-email').value.trim(),
-    organization: document.getElementById('f-org').value.trim(),
-    expires_at: document.getElementById('f-expires').value || null,
-    can_portal: document.getElementById('f-portal').checked,
-    can_specs: document.getElementById('f-specs').checked,
-    can_performance: document.getElementById('f-performance').checked,
-    can_roadmap: document.getElementById('f-roadmap').checked,
-    is_admin: document.getElementById('f-admin').checked,
-    password: manualPassword || undefined
-  };
-  const res = await authedFetch('/.netlify/functions/admin-invite', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload)
-  });
-  if (res.ok) {
-    const data = await res.json().catch(() => ({}));
-    if (data.generatedPassword) {
-      const credText = payload.email + '  /  ' + data.generatedPassword;
-      resultEl.innerHTML = 'Account created. Send these to the partner (shown once):<br>' +
-        '<b>Email:</b> ' + payload.email + '<br>' +
-        '<b>Password:</b> <input type="text" readonly id="new-pw-field" style="padding:4px 8px;font-size:13px;width:auto;display:inline-block;" value="' +
-        data.generatedPassword + '"> ' +
-        '<button type="button" class="btn btn-outline btn-small" id="copy-creds-btn">Copy email + password</button>' +
-        '<span id="copy-creds-confirm" style="display:none;margin-left:8px;color:#16a34a;font-size:12px;">Copied</span>';
-      document.getElementById('copy-creds-btn').addEventListener('click', async () => {
-        await navigator.clipboard.writeText(credText);
-        const c = document.getElementById('copy-creds-confirm');
-        c.style.display = 'inline';
-        setTimeout(() => { c.style.display = 'none'; }, 2000);
-      });
-    } else {
-      resultEl.textContent = 'Saved. ' + (data.accountWarning || '');
-    }
-    document.getElementById('invite-form').reset();
-    ['f-portal','f-specs','f-performance','f-roadmap'].forEach(id => document.getElementById(id).checked = true);
-    document.getElementById('f-admin').checked = false;
-    document.getElementById('f-password').value = '';
-    syncAdminAccessBoxes();
-    loadPartners();
-  } else {
-    const err = await res.json().catch(() => ({}));
-    resultEl.textContent = 'Failed: ' + (err.error || res.status);
-  }
-});
-
-document.getElementById('export-log-btn').addEventListener('click', async () => {
-  const res = await sbFetchProtected('/.netlify/functions/export-log');
-  if (!res || !res.ok) { alert('Export failed'); return; }
-  const blob = await res.blob();
-  const url = URL.createObjectURL(blob);
-  const disposition = res.headers.get('Content-Disposition') || '';
-  const match = disposition.match(/filename="?([^"]+)"?/);
-  const filename = match ? match[1] : ('access-log-' + new Date().toISOString().slice(0,10) + '.csv');
-  const a = document.createElement('a');
-  a.href = url; a.download = filename;
-  document.body.appendChild(a); a.click(); a.remove();
-});
-
-document.getElementById('admin-bootstrap-btn').addEventListener('click', async () => {
-  const resultEl = document.getElementById('admin-bootstrap-result');
-  resultEl.textContent = 'Trying...';
-  const res = await sbFetchProtected('/.netlify/functions/admin-bootstrap');
-  const data = await res.json().catch(() => ({}));
-  if (res.ok) {
-    resultEl.textContent = data.message || 'Done. Please log out and back in.';
-  } else {
-    resultEl.textContent = 'Not eligible: ' + (data.error || res.status);
-  }
-});
 
 document.getElementById('admin-login-open').addEventListener('click', async () => {
   const email = document.getElementById('admin-email').value.trim();
@@ -379,7 +136,7 @@ document.getElementById('admin-login-open').addEventListener('click', async () =
   errEl.style.display = 'none';
   const { data, error } = await sbSignIn(email, password);
   if (error) { errEl.textContent = error.message; errEl.style.display = 'block'; return; }
-  if (isAdminUser(data.user)) { show('admin-panel'); loadPartners(); }
+  if (isAdminUser(data.user)) { show('admin-panel'); }
   else { show('admin-not-authorized'); }
 });
 
@@ -387,7 +144,7 @@ document.getElementById('admin-login-open').addEventListener('click', async () =
   const session = await sbGetSession();
   if (!session) { show('admin-gate'); return; }
   const { data } = await sb.auth.getUser();
-  if (data.user && isAdminUser(data.user)) { show('admin-panel'); loadPartners(); }
+  if (data.user && isAdminUser(data.user)) { show('admin-panel'); }
   else { show('admin-not-authorized'); }
 })();
 

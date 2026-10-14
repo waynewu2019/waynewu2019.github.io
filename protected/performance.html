@@ -1,0 +1,35 @@
+<h2>What Gen1 must demonstrate</h2>
+<p>The Gen1 programme is built to prove the core principles of state-resident structural computing
+on real hardware before any tape-out commitment. The proof-of-concept demonstrates two claims:</p>
+<ul>
+  <li><strong>Topology.</strong> State moves between nodes on a compile-time schedule with no
+  runtime routing.</li>
+  <li><strong>Timing.</strong> Latency is pipe depth — it changes only by the amount a physical
+  change (fiber length) predicts.</li>
+</ul>
+<p>Everything else — throughput at workload level, power, economics — is quantified later and
+published with its configuration. No tokens/sec or cost figures are claimed at this stage.</p>
+
+<h2>Measurement methodology</h2>
+<ul>
+  <li>Identical cycle count across repeated runs of the same workload under the same configuration</li>
+  <li>Latency shift measured against fiber-length changes (10 / 50 / 100 / 500 m), compared with predicted values</li>
+  <li>No jitter, no retries tolerated in a passing run</li>
+  <li>Every run logged with its full configuration for reproducibility</li>
+</ul>
+
+<h2>Status of evidence</h2>
+<table style="width:100%;border-collapse:collapse;margin:16px 0;">
+  <tr style="border-top:2px solid #0A0E1A;border-bottom:1px solid #0A0E1A;">
+    <th style="text-align:left;padding:8px 6px;">Phase</th><th style="text-align:left;padding:8px 6px;">Exit criterion</th><th style="text-align:left;padding:8px 6px;">Timing</th>
+  </tr>
+  <tr style="border-bottom:1px solid #e5e7eb;"><td style="padding:8px 6px;">Architecture simulation &amp; validation POC</td><td style="padding:8px 6px;">Cycle-exact determinism; latency follows predicted fiber-length curve</td><td style="padding:8px 6px;">Completing end of October 2026</td></tr>
+  <tr style="border-bottom:1px solid #e5e7eb;"><td style="padding:8px 6px;">Multi-node FPGA proof-of-concept build</td><td style="padding:8px 6px;">Hardened two-node platform; reproducible runs with logged configuration</td><td style="padding:8px 6px;">Completing end of November 2026</td></tr>
+  <tr style="border-bottom:2px solid #0A0E1A;"><td style="padding:8px 6px;">First published results</td><td style="padding:8px 6px;">Fixed-latency state transfer between nodes, published as measured</td><td style="padding:8px 6px;">December 2026</td></tr>
+</table>
+
+<h2>Where the MPU fits, stated honestly</h2>
+<p>Single-stream decode throughput is bounded by memory bandwidth. The MPU case is conditional
+and specific: state-resident computing targets mixture-of-experts / sparse serving, long-context
+workloads, and latency-bound single-stream serving — not dense large-batch serving, where
+HBM-based GPUs win on bandwidth per dollar. Full assessment in the public technical overview.</p>
