@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Symatics</title>
+<script>
+// GitHub Pages has no extensionless-URL rewrite; map /foo -> /foo.html
+var p = location.pathname.replace(/\/+$/, '');
+if (p === '' || p === '/symatics-website') { location.replace('/home.html'); }
+else { location.replace(p + '.html' + location.search + location.hash); }
+</script>
+</head>
+<body style="background:#0a0e1a;color:#a6b0c2;font-family:system-ui;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;">
+<p>Redirecting&hellip; <a href="/home.html" style="color:#7C9BFF;">Symatics homepage</a></p>
+</body>
+</html>

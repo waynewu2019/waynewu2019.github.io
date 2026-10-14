@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="telephone=no, address=no, email=no" name="format-detection"/>
+<title>Landscape, Symatics</title>
+<link href="images/logo.png" rel="icon" type="image/svg+xml"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+</head>
+<body class="landscape-page">
+<a class="sg-bar" href="/singapore"><span class="sg-bar-dot"></span><span><strong>Singapore concept launch</strong><span class="sg-bar-detail"> &middot; AI for Good Summit, Shangri-La Singapore</span> &middot; 5&ndash;7 Nov 2026</span><span class="sg-bar-cta">Meet us &rarr;</span></a>
+<header class="site">
+<div class="wrap nav">
+<a class='brand' href='/home'><img alt="Symatics logo" src="images/logo.png"/> SYMATICS</a>
+<ul class="nav-links">
+<li><a href='/architecture'>Architecture</a></li>
+<li><a href='/technology'>Technology</a></li>
+<li><a href='/models'>Models</a></li>
+<li><a href='/specs'>Specs</a></li>
+<li><a href='/performance'>Performance</a></li>
+<li><a class='active' href='/landscape'>Landscape</a></li>
+<li><a href='/roadmap'>Roadmap</a></li>
+<li><a href='/company'>Company</a></li>
+<li><a href='/team'>Team</a></li>
+<li><a href='/careers'>Careers</a></li>
+<li><a href='/contact'>Contact</a></li>
+<li><a href='/events'>Events</a></li>
+</ul>
+<div class="nav-cta">
+<a class='btn btn-primary' href='/contact'>Get in touch
+        <svg fill="none" height="14" viewbox="0 0 16 16" width="14"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg>
+</a>
+<button aria-label="Toggle menu" class="nav-toggle" onclick="document.getElementById('mobile-menu').classList.toggle('open')">
+<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-width="1.8" viewbox="0 0 24 24" width="20"><path d="M3 6h18M3 12h18M3 18h18"></path></svg>
+</button>
+</div>
+</div>
+<div class="wrap">
+<div class="mobile-menu" id="mobile-menu">
+<a href='/architecture' onclick='document.getElementById(\'mobile-menu\').classList.remove(\'open\')'>Architecture</a>
+<a href='/technology' onclick='document.getElementById(\'mobile-menu\').classList.remove(\'open\')'>Technology</a>
+<a href='/models' onclick='document.getElementById(\'mobile-menu\').classList.remove(\'open\')'>Models</a>
+<a href='/specs' onclick='document.getElementById(\'mobile-menu\').classList.remove(\'open\')'>Specs</a>
+<a href='/performance' onclick='document.getElementById(\'mobile-menu\').classList.remove(\'open\')'>Performance</a>
+<a class='active' href='/landscape' onclick='document.getElementById(\'mobile-menu\').classList.remove(\'open\')'>Landscape</a>
+<a href='/roadmap' onclick='document.getElementById(\'mobile-menu\').classList.remove(\'open\')'>Roadmap</a>
+<a href='/company' onclick='document.getElementById(\'mobile-menu\').classList.remove(\'open\')'>Company</a>
+<a href='/team' onclick='document.getElementById(\'mobile-menu\').classList.remove(\'open\')'>Team</a>
+<a href='/careers' onclick='document.getElementById(\'mobile-menu\').classList.remove(\'open\')'>Careers</a>
+<a href='/contact' onclick='document.getElementById(\'mobile-menu\').classList.remove(\'open\')'>Contact</a>
+<a href='/events' onclick='document.getElementById(\'mobile-menu\').classList.remove(\'open\')'>Events</a>
+</div>
+</div>
+</header>
+<main>
+<!-- HERO: text left, spectrum diagram right -->
+<section style="background:#F7F8FB;padding:72px 0 64px;">
+<div class="wrap">
+<div style="display:grid;grid-template-columns:2fr 3fr;gap:48px;align-items:center;">
+<div>
+<div class="eyebrow">Accelerator Landscape</div>
+<h1 style="font-size:clamp(36px,4.8vw,58px);line-height:1.06;letter-spacing:-0.04em;color:var(--ink);margin-bottom:20px;">Where MPU sits in the <span style="color:var(--blue);">accelerator spectrum.</span></h1>
+<p style="font-size:15px;color:var(--body);line-height:1.65;max-width:440px;">Two axes determine MPU's positioning: the memory layer (HBM / SRAM / DDR) and where scheduling happens (runtime vs. compile-time). These define who MPU competes with — and who it doesn't.</p>
+</div>
+<div>
+<picture><source media="(max-width:768px)" srcset="images/mobile/landscape-spectrum.png"/><img src="images/desktop/landscape-spectrum.png" alt="Accelerator spectrum diagram — GPU, LPU, HC1, MPU positioning" style="width:100%;display:block;border-radius:12px;background:#F0F2F7;" loading="lazy"/></picture>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 4 COMPARISON CARDS -->
+<section style="background:#fff;padding:72px 0;border-top:1px solid var(--border);">
+<div class="wrap">
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;">
+
+<!-- GPU -->
+<div style="background:#F7F8FB;border:1px solid var(--border);border-radius:14px;padding:24px;">
+<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+<div style="width:36px;height:36px;background:#111;border-radius:8px;display:flex;align-items:center;justify-content:center;">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+</div>
+<span style="font-size:11px;color:var(--body);">Production · dominant</span>
+</div>
+<h3 style="font-size:17px;font-weight:700;color:var(--ink);margin-bottom:16px;">GPU<br/><span style="font-weight:400;color:var(--body);font-size:13px;">(NVIDIA)</span></h3>
+<div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--body);margin-bottom:3px;">MEMORY</div>
+<p style="font-size:13px;color:var(--ink);margin-bottom:12px;">HBM (3–8+ TB/s)</p>
+<div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--body);margin-bottom:3px;">SCHEDULING</div>
+<p style="font-size:13px;color:var(--ink);margin-bottom:16px;">Runtime dynamic</p>
+<div style="border-top:1px solid var(--border);padding-top:14px;">
+<p style="font-size:12.5px;color:var(--body);margin-bottom:6px;">+ General purpose, mature CUDA, high batch throughput</p>
+<p style="font-size:12.5px;color:var(--body);">— Cost/power, collective overhead at scale</p>
+</div>
+</div>
+
+<!-- LPU -->
+<div style="background:#F7F8FB;border:1px solid var(--border);border-radius:14px;padding:24px;">
+<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+<div style="width:36px;height:36px;background:#555;border-radius:8px;display:flex;align-items:center;justify-content:center;">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l5 3"/></svg>
+</div>
+<span style="font-size:11px;color:var(--body);">Production (inference cloud)</span>
+</div>
+<h3 style="font-size:17px;font-weight:700;color:var(--ink);margin-bottom:16px;">LPU<br/><span style="font-weight:400;color:var(--body);font-size:13px;">(Groq)</span></h3>
+<div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--body);margin-bottom:3px;">MEMORY</div>
+<p style="font-size:13px;color:var(--ink);margin-bottom:12px;">Large on-chip SRAM</p>
+<div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--body);margin-bottom:3px;">SCHEDULING</div>
+<p style="font-size:13px;color:var(--ink);margin-bottom:16px;">Compile-time fixed</p>
+<div style="border-top:1px solid var(--border);padding-top:14px;">
+<p style="font-size:12.5px;color:var(--body);margin-bottom:6px;">+ Ultra-low latency, deterministic single-stream</p>
+<p style="font-size:12.5px;color:var(--body);">— SRAM capacity limited, expensive for large models</p>
+</div>
+</div>
+
+<!-- HC1 -->
+<div style="background:#F7F8FB;border:1px solid var(--border);border-radius:14px;padding:24px;">
+<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+<div style="width:36px;height:36px;background:#333;border-radius:8px;display:flex;align-items:center;justify-content:center;">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+</div>
+<span style="font-size:11px;color:var(--body);">Silicon (8B hard-wired)</span>
+</div>
+<h3 style="font-size:17px;font-weight:700;color:var(--ink);margin-bottom:16px;">HC1<br/><span style="font-weight:400;color:var(--body);font-size:13px;">(Taalas)</span></h3>
+<div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--body);margin-bottom:3px;">MEMORY</div>
+<p style="font-size:13px;color:var(--ink);margin-bottom:12px;">Mask-ROM hard-wired</p>
+<div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--body);margin-bottom:3px;">SCHEDULING</div>
+<p style="font-size:13px;color:var(--ink);margin-bottom:16px;">Fixed-function</p>
+<div style="border-top:1px solid var(--border);padding-top:14px;">
+<p style="font-size:12.5px;color:var(--body);margin-bottom:6px;">+ Very high throughput for single model</p>
+<p style="font-size:12.5px;color:var(--body);">— Single model only, no generality</p>
+</div>
+</div>
+
+<!-- MPU -->
+<div style="background:#fff;border:2px solid var(--blue);border-radius:14px;padding:24px;">
+<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+<div style="width:36px;height:36px;background:var(--blue);border-radius:8px;display:flex;align-items:center;justify-content:center;">
+<img src="images/logo.png" alt="" style="width:20px;height:20px;filter:brightness(0) invert(1);"/>
+</div>
+<span style="font-size:11px;color:var(--body);">Gen1 / pre-silicon</span>
+</div>
+<h3 style="font-size:17px;font-weight:700;color:var(--blue);margin-bottom:16px;">MPU<br/><span style="font-weight:400;color:var(--body);font-size:13px;">(Symatics)</span></h3>
+<div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--body);margin-bottom:3px;">MEMORY</div>
+<p style="font-size:13px;color:var(--ink);margin-bottom:12px;">DDR7* / structural ingress</p>
+<div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--body);margin-bottom:3px;">SCHEDULING</div>
+<p style="font-size:13px;color:var(--ink);margin-bottom:16px;">Compile-time structural</p>
+<div style="border-top:1px solid rgba(47,91,255,0.15);padding-top:14px;">
+<p style="font-size:12.5px;color:var(--body);margin-bottom:6px;">+ Sparse/MoE, long-context, multi-agent — best when weight reuse is high, not first load</p>
+<p style="font-size:12.5px;color:var(--body);">— Pre-silicon, near-zero ecosystem</p>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- KEY INSIGHT -->
+<section style="background:#F7F8FB;padding:0 0 64px;">
+<div class="wrap">
+<div style="background:#fff;border:1px solid var(--border);border-left:4px solid var(--blue);border-radius:14px;padding:32px 36px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;">
+<div>
+<h4 style="font-size:16px;font-weight:700;color:var(--ink);margin-bottom:10px;">MPU's nearest "living relative" is Groq LPU, not Google TPU</h4>
+<p style="font-size:13.5px;color:var(--body);line-height:1.65;margin-bottom:10px;">Groq has already shipped in production what MPU pursues: deterministic execution, compile-time scheduling, SRAM-resident state, ultra-low-latency single-stream. The real difference is the memory layer — MPU uses DDR instead of SRAM (Groq needs hundreds of chips to fit large models in SRAM).</p>
+<p style="font-size:12px;color:#999;font-style:italic;">*TPU = compiler schedules data into a fixed, HBM-fed array. MPU = the array's wiring is the schedule, DDR-fed.</p>
+</div>
+<div style="width:48px;height:48px;background:rgba(47,91,255,0.08);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FULL SPEC MATRIX -->
+<section style="background:#fff;padding:72px 0;border-top:1px solid var(--border);">
+<div class="wrap">
+<div class="eyebrow" style="margin-bottom:8px;">Architecture-Class Comparison</div>
+<h2 style="font-size:clamp(24px,2.8vw,36px);font-weight:700;color:var(--ink);margin-bottom:40px;">Full specification matrix</h2>
+<div style="overflow-x:auto;">
+<table style="width:100%;border-collapse:collapse;font-size:13px;">
+<thead>
+<tr style="border-bottom:2px solid var(--border);">
+<th style="text-align:left;padding:10px 16px 10px 0;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--body);width:140px;">DIMENSION</th>
+<th style="text-align:left;padding:10px 16px 10px 0;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--body);">GPU</th>
+<th style="text-align:left;padding:10px 16px 10px 0;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--body);">LPU</th>
+<th style="text-align:left;padding:10px 16px 10px 0;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--body);">TPU</th>
+<th style="text-align:left;padding:10px 16px 10px 0;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--body);">HC1</th>
+<th style="text-align:left;padding:10px 0;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--blue);">MPU</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom:1px solid var(--border);">
+<td style="padding:13px 16px 13px 0;font-weight:600;color:var(--ink);">Core idea</td>
+<td style="padding:13px 16px 13px 0;color:var(--body);">Massive parallel general-purpose</td>
+<td style="padding:13px 16px 13px 0;color:var(--body);">Deterministic single-stream</td>
+<td style="padding:13px 16px 13px 0;color:var(--body);">Systolic matrix engine</td>
+<td style="padding:13px 16px 13px 0;color:var(--body);">Hard-wired single model</td>
+<td style="padding:13px 0;color:var(--blue);font-weight:500;">Structure-as-Computation</td>
+</tr>
+<tr style="border-bottom:1px solid var(--border);">
+<td style="padding:13px 16px 13px 0;font-weight:600;color:var(--ink);">Compute unit</td>
+<td style="padding:13px 16px 13px 0;color:var(--body);">1000s CUDA/Tensor cores</td>
+<td style="padding:13px 16px 13px 0;color:var(--body);">Large systolic array</td>
+<td style="padding:13px 16px 13px 0;color:var(--body);">Systolic MXU array</td>
+<td style="padding:13px 16px 13px 0;color:var(--body);">Fixed-function MAC</td>
+<td style="padding:13px 0;color:var(--blue);font-weight:500;">Homogeneous PE array</td>
+</tr>
+<tr style="border-bottom:1px solid var(--border);">
+<td style="padding:13px 16px 13px 0;font-weight:600;color:var(--ink);">Scheduling</td>
+<td style="padding:13px 16px 13px 0;color:var(--body);">Runtime dynamic</td>
+<td style="padding:13px 16px 13px 0;color:var(--body);">Compile-time fixed</td>
+<td style="padding:13px 16px 13px 0;color:var(--body);">Compile-plan / run-execute</td>
+<td style="padding:13px 16px 13px 0;color:var(--body);">Fixed at manufacture</td>
+<td style="padding:13px 0;color:var(--blue);font-weight:500;">Compile-time structural</td>
+</tr>
+<tr style="border-bottom:1px solid var(--border);">
+<td style="padding:13px 16px 13px 0;font-weight:600;color:var(--ink);">Memory</td>
+<td style="padding:13px 16px 13px 0;color:var(--body);">HBM (3–8 TB/s)</td>
+<td style="padding:13px 16px 13px 0;color:var(--body);">Large on-chip SRAM</td>
+<td style="padding:13px 16px 13px 0;color:var(--body);">HBM</td>
+<td style="padding:13px 16px 13px 0;color:var(--body);">Mask-ROM</td>
+<td style="padding:13px 0;color:var(--blue);font-weight:500;">DDR7 + structural ingress</td>
+</tr>
+<tr style="border-bottom:1px solid var(--border);">
+<td style="padding:13px 16px 13px 0;font-weight:600;color:var(--ink);">Interconnect</td>
+<td style="padding:13px 16px 13px 0;color:var(--body);">NVLink + collectives</td>
+<td style="padding:13px 16px 13px 0;color:var(--body);">Chip-to-chip mesh</td>
+<td style="padding:13px 16px 13px 0;color:var(--body);">ICI / optical</td>
+<td style="padding:13px 16px 13px 0;color:var(--body);">Single chip</td>
+<td style="padding:13px 0;color:var(--blue);font-weight:500;">Extend + domain</td>
+</tr>
+<tr style="border-bottom:1px solid var(--border);">
+<td style="padding:13px 16px 13px 0;font-weight:600;color:var(--ink);">Strength</td>
+<td style="padding:13px 16px 13px 0;color:var(--body);">General, CUDA, batch</td>
+<td style="padding:13px 16px 13px 0;color:var(--body);">Ultra-low latency</td>
+<td style="padding:13px 16px 13px 0;color:var(--body);">Google throughput/$</td>
+<td style="padding:13px 16px 13px 0;color:var(--body);">Very high (one model)</td>
+<td style="padding:13px 0;color:var(--blue);font-weight:500;">Sparse/MoE, long-context</td>
+</tr>
+<tr style="border-bottom:1px solid var(--border);">
+<td style="padding:13px 16px 13px 0;font-weight:600;color:var(--ink);">Programmability</td>
+<td style="padding:13px 16px 13px 0;color:var(--body);">Highest (full CUDA)</td>
+<td style="padding:13px 16px 13px 0;color:var(--body);">Medium</td>
+<td style="padding:13px 16px 13px 0;color:var(--body);">Medium (XLA/JAX)</td>
+<td style="padding:13px 16px 13px 0;color:var(--body);">None</td>
+<td style="padding:13px 0;color:var(--blue);font-weight:500;">Lowest (compile to structure)</td>
+</tr>
+<tr>
+<td style="padding:13px 16px 13px 0;font-weight:600;color:var(--ink);">Maturity</td>
+<td style="padding:13px 16px 13px 0;color:var(--body);">Production</td>
+<td style="padding:13px 16px 13px 0;color:var(--body);">Production</td>
+<td style="padding:13px 16px 13px 0;color:var(--body);">Production (Google)</td>
+<td style="padding:13px 16px 13px 0;color:var(--body);">Silicon (8B)</td>
+<td style="padding:13px 0;color:var(--blue);font-weight:500;">Pre-silicon / Gen1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+
+<!-- NOT A GENERAL PURPOSE SWITCH -->
+<section style="background:#F7F8FB;padding:72px 0;border-top:1px solid var(--border);">
+<div class="wrap">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;">
+<div>
+<div class="eyebrow" style="margin-bottom:8px;">Not a general-purpose switch</div>
+<h2 style="font-size:clamp(22px,2.6vw,30px);font-weight:700;color:var(--ink);margin-bottom:14px;">Not a general-purpose switch</h2>
+<p style="font-size:14px;color:var(--body);line-height:1.65;">The MPU Switch is the physical carrier of SIF inside one domain — a single hub performing per-row broadcast. Its low aggregate bandwidth (512 GB/s vs. NVSwitch's multi-Tbps) is a design conclusion, not under-provisioning: weights don't cross SIF, and the state that does is bounded.</p>
+</div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+<div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center;">
+<div style="font-size:11px;color:var(--body);margin-bottom:8px;">CXL Switch</div>
+<div style="font-size:22px;font-weight:800;color:var(--ink);">Multi-Tbps</div>
+<p style="font-size:12px;color:var(--body);margin-top:8px;">Address/ID routing, credits, QoS, in-network compute</p>
+</div>
+<div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center;">
+<div style="font-size:11px;color:var(--body);margin-bottom:8px;">NVSwitch 3.0</div>
+<div style="font-size:22px;font-weight:800;color:var(--ink);">12.8 Tbps</div>
+<p style="font-size:12px;color:var(--body);margin-top:8px;">NVLink routing, SHARP reduction, credit flow</p>
+</div>
+<div style="background:#fff;border:2px solid var(--blue);border-radius:12px;padding:20px;text-align:center;">
+<div style="font-size:11px;color:var(--body);margin-bottom:8px;">MPU Switch</div>
+<div style="font-size:22px;font-weight:800;color:var(--blue);">512 GB/s</div>
+<p style="font-size:12px;color:var(--body);margin-top:8px;">No routing, no flow control, no in-network compute</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- IMPOSSIBLE TRIANGLE -->
+<section style="background:#fff;padding:72px 0;border-top:1px solid var(--border);">
+<div class="wrap">
+<div style="background:#F7F8FB;border:1px solid var(--border);border-radius:20px;padding:48px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;">
+<div style="text-align:center;">
+<h3 style="font-size:clamp(20px,2.2vw,26px);font-weight:700;color:var(--ink);margin-bottom:10px;">The impossible triangle</h3>
+<p style="font-size:13.5px;color:var(--body);margin-bottom:36px;">Structure-as-computation × Generality × No-HBM = pick two. Product value lies in how we choose the middle ground.</p>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+<div style="border:2px solid var(--blue);border-radius:12px;padding:16px 10px;text-align:center;">
+<div style="font-size:10px;font-weight:700;color:var(--blue);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">KEEP</div>
+<div style="font-size:13px;font-weight:600;color:var(--blue);">Structure-as-Computation</div>
+</div>
+<div style="border:2px solid #FFB347;border-radius:12px;padding:16px 10px;text-align:center;">
+<div style="font-size:10px;font-weight:700;color:#FFB347;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">CONSTRAIN</div>
+<div style="font-size:13px;font-weight:600;color:#FFB347;">Generality</div>
+</div>
+<div style="border:2px solid #67e8f9;border-radius:12px;padding:16px 10px;text-align:center;">
+<div style="font-size:10px;font-weight:700;color:#67e8f9;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">KEEP</div>
+<div style="font-size:13px;font-weight:600;color:#67e8f9;">No HBM</div>
+</div>
+</div>
+</div>
+<div>
+<p style="font-size:14px;color:var(--body);line-height:1.7;">MPU picks structural computing + no-HBM, accepts generality constraints (compile-time fixed structure), and wins on MoE/sparse workloads where the per-token byte advantage is largest.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section style="background:var(--bg-dark);padding:64px 0;">
+<div class="wrap">
+<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;">
+<h3 style="color:#fff;font-size:clamp(20px,2.4vw,28px);font-weight:700;margin:0;">See how performance numbers are derived</h3>
+<div style="display:flex;gap:12px;flex-wrap:wrap;">
+<a class='btn btn-primary' href='/performance'>View Performance
+<svg fill="none" height="14" viewbox="0 0 16 16" width="14"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg>
+</a>
+<a class='btn btn-outline-light' href='/contact'>Contact us</a>
+</div>
+</div>
+</div>
+</section>
+
+</main>
+<footer class="site">
+<div class="wrap">
+<div class="ft-grid">
+<div class="ft-brand">
+<a class='brand' href='/home'><img alt="Symatics logo" src="images/logo.png"/> SYMATICS</a>
+<p>Architecture for<br/>persistent intelligence.</p>
+</div>
+<div class="ft-cols">
+<div class="ft-group">
+<div class="ft-label">PRODUCT</div>
+<div class="ft-links">
+<a href='/architecture'>Architecture</a>
+<a href='/technology'>Technology</a>
+<a href='/models'>Models</a>
+<a href='/specs'>Specs</a>
+<a href='/performance'>Performance</a>
+<a href='/landscape'>Landscape</a>
+<a href='/roadmap'>Roadmap</a>
+</div>
+</div>
+<div class="ft-group">
+<div class="ft-label">COMPANY</div>
+<div class="ft-links">
+<a href='/company'>Company</a>
+<a href='/team'>Team</a>
+<a href='/careers'>Careers</a>
+<a href='/singapore'>Singapore launch</a>
+<a href='/contact'>Contact</a>
+<a href='/events'>Events</a>
+</div>
+</div>
+</div>
+<div class="ft-right">
+<div class="ft-socials">
+<a aria-label="LinkedIn" href="https://linkedin.com/company/symatics" rel="noopener" target="_blank"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.6c0-1.34-.02-3.06-1.87-3.06-1.87 0-2.16 1.46-2.16 2.96V21h-4V9z"/></svg></a>
+<a aria-label="X" href="https://x.com/symaticscompute" rel="noopener" target="_blank"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M18.9 3H22l-7.2 8.2L22.6 21h-6.9l-5.4-6.6L4 21H1l7.7-8.8L1.4 3h7l4.9 6 5.6-6z"/></svg></a>
+</div>
+<p class="ft-copy">&#169; 2026 SYMATICS Pte. Ltd.<br/>All rights reserved.</p>
+</div>
+</div>
+<div class="ft-legal">
+<a href="/privacy">Privacy Policy</a>
+<a href="/terms">Terms of Use</a>
+</div>
+</div>
+</footer>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="telephone=no, address=no, email=no" name="format-detection"/>
+<title>Roadmap, Symatics</title>
+<link href="images/logo.png" rel="icon" type="image/svg+xml"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+
+<style>
+@media (max-width: 860px) {
+  .roadmap-page .rm-hero-grid,
+  .roadmap-page .rm-gen-grid,
+  .roadmap-page .rm-sif-grid { grid-template-columns: 1fr !important; }
+  .roadmap-page .rm-phase-grid { grid-template-columns: 1fr !important; }
+  .roadmap-page .rm-gen1-status-grid { grid-template-columns: 1fr !important; }
+}
+</style>
+</head>
+<body class="roadmap-page">
+<a class="sg-bar" href="/singapore"><span class="sg-bar-dot"></span><span><strong>Singapore concept launch</strong><span class="sg-bar-detail"> &middot; AI for Good Summit, Shangri-La Singapore</span> &middot; 5&ndash;7 Nov 2026</span><span class="sg-bar-cta">Meet us &rarr;</span></a>
+<header class="site">
+<div class="wrap nav">
+<a class='brand' href='/home'><img alt="Symatics logo" src="images/logo.png"/> SYMATICS</a>
+<ul class="nav-links">
+<li><a href='/architecture'>Architecture</a></li>
+<li><a href='/technology'>Technology</a></li>
+<li><a href='/models'>Models</a></li>
+<li><a href='/specs'>Specs</a></li>
+<li><a href='/performance'>Performance</a></li>
+<li><a href='/landscape'>Landscape</a></li>
+<li><a class='active' href='/roadmap'>Roadmap</a></li>
+<li><a href='/company'>Company</a></li>
+<li><a href='/team'>Team</a></li>
+<li><a href='/careers'>Careers</a></li>
+<li><a href='/contact'>Contact</a></li>
+<li><a href='/events'>Events</a></li>
+</ul>
+<div class="nav-cta">
+<a class='btn btn-primary' href='/contact'>Get in touch
+        <svg fill="none" height="14" viewbox="0 0 16 16" width="14"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg>
+</a>
+<button aria-label="Toggle menu" class="nav-toggle" onclick="document.getElementById('mobile-menu').classList.toggle('open')">
+<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-width="1.8" viewbox="0 0 24 24" width="20"><path d="M3 6h18M3 12h18M3 18h18"></path></svg>
+</button>
+</div>
+</div>
+<div class="wrap">
+<div class="mobile-menu" id="mobile-menu">
+<a href='/architecture' onclick='document.getElementById(\'mobile-menu\').classList.remove(\'open\')'>Architecture</a>
+<a href='/technology' onclick='document.getElementById(\'mobile-menu\').classList.remove(\'open\')'>Technology</a>
+<a href='/models' onclick='document.getElementById(\'mobile-menu\').classList.remove(\'open\')'>Models</a>
+<a href='/specs' onclick='document.getElementById(\'mobile-menu\').classList.remove(\'open\')'>Specs</a>
+<a href='/performance' onclick='document.getElementById(\'mobile-menu\').classList.remove(\'open\')'>Performance</a>
+<a href='/landscape' onclick='document.getElementById(\'mobile-menu\').classList.remove(\'open\')'>Landscape</a>
+<a class='active' href='/roadmap' onclick='document.getElementById(\'mobile-menu\').classList.remove(\'open\')'>Roadmap</a>
+<a href='/company' onclick='document.getElementById(\'mobile-menu\').classList.remove(\'open\')'>Company</a>
+<a href='/team' onclick='document.getElementById(\'mobile-menu\').classList.remove(\'open\')'>Team</a>
+<a href='/careers' onclick='document.getElementById(\'mobile-menu\').classList.remove(\'open\')'>Careers</a>
+<a href='/contact' onclick='document.getElementById(\'mobile-menu\').classList.remove(\'open\')'>Contact</a>
+<a href='/events' onclick='document.getElementById(\'mobile-menu\').classList.remove(\'open\')'>Events</a>
+</div>
+</div>
+</header>
+<main>
+<!-- HERO: text left, image right -->
+<section style="background:#F7F8FB; padding:72px 0 64px;">
+<div class="wrap">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;">
+<div>
+<div class="eyebrow">Product Roadmap</div>
+<h1 style="font-size:clamp(40px,5vw,64px);line-height:1.04;letter-spacing:-0.04em;color:var(--ink);margin-bottom:20px;">Gen1 validates.<br/><span style="color:var(--blue);">Gen2 produces.</span></h1>
+<p style="font-size:17px;color:var(--body);line-height:1.65;max-width:440px;">A two-generation path from FPGA proof-of-concept to production silicon. Gen1 closes the architecture on a 64-chip domain. Gen2 scales to production MoE, long-context, and agentic workloads.</p>
+</div>
+<div>
+<picture><source media="(max-width:768px)" srcset="images/desktop/rm-gen1-gen2-structural.png"/><img src="images/desktop/rm-gen1-gen2-structural.png" alt="Gen1 to Gen2 structural architecture evolution" style="border-radius:16px;width:100%;display:block;" loading="lazy"/></picture>
+</div>
+</div>
+</div>
+</section>
+
+<!-- GEN1 VALIDATION STATUS: public progress panel -->
+<section style="background:#F7F8FB;padding:64px 0;">
+<div class="wrap">
+<div class="rm-status" style="background:#ffffff;border:1px solid #1E40D6;border-radius:20px;padding:48px;">
+<div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:6px;">
+<span style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#67e8f9;background:rgba(103,232,249,0.1);border:1px solid rgba(103,232,249,0.3);border-radius:999px;padding:4px 12px;">Pre-silicon &middot; Sim &amp; validation POC Oct &middot; FPGA build Nov</span>
+<span style="font-size:13px;color:#a6b0c2;">Updated 14 October 2026</span>
+</div>
+<h2 style="font-size:clamp(22px,2.4vw,30px);font-weight:700;color:#fff;margin:12px 0;">Gen1 &mdash; Architecture Validation</h2>
+<p style="font-size:15px;color:#a6b0c2;max-width:720px;line-height:1.65;margin:0;">Goal: prove the core principles of state-resident structural computing on real hardware &mdash; before any tape-out commitment. We report what is done, what is in progress, and what is next. Nothing below is a silicon measurement.</p>
+<div class="status-ledger">
+<div class="done"><h5>Done</h5><ul>
+<li>Gen1 architecture defined: compute array, state domain, and fabric topology</li>
+<li>Design partners engaged for front-end (Taiwan) and implementation (Canada)</li>
+<li>FPGA platform selected: AMD Alveo V80 compute nodes, AMD Versal VPK120 fabric node</li>
+</ul></div>
+<div class="now"><h5>In progress</h5><ul>
+<li>Architecture specification and cycle-level C-model</li>
+<li>Multi-node FPGA proof-of-concept: compute and fabric nodes in build</li>
+<li>Proof-of-concept compiler for compile-time state-path scheduling</li>
+<li>Singapore concept launch, 5&ndash;7 Nov 2026 (architecture exhibit, no live compute)</li>
+</ul></div>
+<div class="next"><h5>Next</h5><ul>
+<li>FPGA build completes end of Nov 2026; first results (fixed-latency state transfer) published as measured</li>
+<li>Published measurements of latency determinism and state residency</li>
+<li>Scaling toward a full 64-chip domain equivalent and broader workload characterization</li>
+</ul></div>
+</div>
+<p style="font-size:14px;color:#7C9BFF;font-weight:600;margin:32px 0 0;">Gen1 closes the architecture. Gen2 moves to production silicon.</p>
+<div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap;">
+<a class="btn btn-outline" href="/downloads/symatics-technical-overview.pdf" target="_blank" rel="noopener noreferrer">Download public technical overview (PDF)</a>
+<span style="font-size:13px;color:#a6b0c2;align-self:center;">Detailed per-generation parameters and dated milestones are available under NDA.</span>
+</div>
+</div>
+</div>
+
+<!-- PARTNER GATE: detailed generation parameters under NDA -->
+<div style="max-width:720px;margin:48px auto 0;">
+<div id="roadmap-gate-checking" style="padding:48px;text-align:center;"><p style="color:var(--body);font-size:14px;">Checking access...</p></div>
+<div id="roadmap-gate" style="display:none;border:1px solid var(--border);border-radius:16px;padding:48px;text-align:center;background:#fff;">
+<div class="portal-lock-icon" style="margin:0 auto 20px;">
+<svg viewBox="0 0 24 24" fill="none" stroke="#7C9BFF" stroke-width="1.5" width="24" height="24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+</div>
+<h2 style="font-size:clamp(20px,2.2vw,26px);font-weight:700;color:var(--ink);margin-bottom:10px;">Detailed generation parameters and validation milestones</h2>
+<p style="color:var(--body);font-size:14.5px;margin-bottom:24px;max-width:480px;margin-left:auto;margin-right:auto;">Per-generation capability tables and dated validation milestones are available under NDA to ecosystem partners.</p>
+<div style="max-width:320px;margin:0 auto;">
+<a class="btn btn-primary" href="/contact?topic=nda#message" style="width:100%;justify-content:center;margin-bottom:12px;">Available under NDA &mdash; Contact us <svg fill="none" height="14" viewbox="0 0 16 16" width="14"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></a>
+<p style="font-size:13px;color:var(--body);margin:14px 0 10px;">Existing partner? Sign in below.</p>
+<div id="roadmap-access-message" style="display:none;background:#fff7ed;border:1px solid #fdba74;color:#9a3412;font-size:13px;padding:12px 14px;border-radius:8px;margin-bottom:14px;text-align:left;"></div>
+<div id="roadmap-login-error" style="display:none;color:#dc2626;font-size:13px;margin-bottom:10px;"></div>
+<input class="portal-input" id="roadmap-email" placeholder="you@company.com" type="email" style="margin-bottom:10px;width:100%;"/>
+<input class="portal-input" id="roadmap-password-field" placeholder="Password" type="password" style="margin-bottom:14px;width:100%;"/>
+<button class="btn btn-outline" id="roadmap-login-open" style="width:100%;justify-content:center;">
+Partner login
+<svg fill="none" height="14" viewbox="0 0 16 16" width="14"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg>
+</button>
+</div>
+</div>
+<div id="roadmap-content" style="display:none;"></div>
+</div>
+</section>
+
+
+<!-- SIF-LINK: text left, image right -->
+<section style="background:#fff;padding:80px 0;border-top:1px solid var(--border);">
+<div class="wrap">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;">
+<div>
+<h2 style="font-size:clamp(22px,2.4vw,30px);font-weight:700;color:var(--ink);margin-bottom:16px;">SIF-Link: keep the PHY, delete the rest</h2>
+<p style="font-size:14.5px;color:var(--body);line-height:1.65;margin-bottom:28px;">SIF-Link keeps the physical layer (SerDes, alignment, CRC) and reuses mature commercial IP. Everything whose job is to manage unpredictable traffic — routing, flow control, QoS, CXL transactions — is deleted and replaced by compile-time configuration.</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:28px;">
+<div>
+<div style="font-size:11px;font-weight:700;color:#16a34a;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px;">KEPT</div>
+<div style="font-size:13px;color:var(--body);padding:7px 0;border-bottom:1px solid var(--border);">+ PHY / PCS (SerDes)</div>
+<div style="font-size:13px;color:var(--body);padding:7px 0;border-bottom:1px solid var(--border);">+ Link-layer CRC</div>
+<div style="font-size:13px;color:var(--body);padding:7px 0;">+ Fixed-length flit</div>
+</div>
+<div>
+<div style="font-size:11px;font-weight:700;color:var(--body);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px;">DELETED</div>
+<div style="font-size:13px;color:#999;padding:7px 0;border-bottom:1px solid var(--border);">&#8212; Address/ID routing</div>
+<div style="font-size:13px;color:#999;padding:7px 0;border-bottom:1px solid var(--border);">&#8212; Credit flow control</div>
+<div style="font-size:13px;color:#999;padding:7px 0;border-bottom:1px solid var(--border);">&#8212; QoS / TC / VC</div>
+<div style="font-size:13px;color:#999;padding:7px 0;border-bottom:1px solid var(--border);">&#8212; CXL transactions</div>
+<div style="font-size:13px;color:#999;padding:7px 0;">&#8212; Hot-plug enum</div>
+</div>
+</div>
+</div>
+<div>
+<picture><source media="(max-width:768px)" srcset="images/mobile/sif-protocol-structural.png"/><img src="images/desktop/sif-protocol-structural.png" alt="SIF-Link protocol simplification" style="border-radius:14px;width:100%;display:block;margin-bottom:20px;" loading="lazy"/></picture>
+<div style="background:#F7F8FB;border:1px solid var(--border);border-radius:12px;padding:24px;">
+<h4 style="font-size:15px;font-weight:700;color:var(--ink);margin-bottom:8px;">Determinism by design</h4>
+<p style="font-size:13.5px;color:var(--body);line-height:1.6;">SIF traffic has no unpredictability by construction: single-source per slot, fixed fanout, compiler-scheduled. No mechanism is needed to manage what doesn't exist. Latency equals pure pipe depth — no queueing term.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section style="background:var(--bg-dark);padding:64px 0;">
+<div class="wrap">
+<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;text-align:center;">
+<h3 style="color:#fff;font-size:clamp(20px,2.4vw,28px);font-weight:700;margin:0;">Want the full technical detail?</h3>
+<div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;">
+<a class='btn btn-primary' href='/contact'>Request access under NDA
+<svg fill="none" height="14" viewbox="0 0 16 16" width="14"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg>
+</a>
+<a class='btn btn-outline-light' href='/downloads/symatics-technical-overview.pdf' target='_blank' rel='noopener noreferrer'>Public overview (PDF)</a>
+</div>
+</div>
+</div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-auth.js"></script>
+<script>
+function showRoadmapGate(info) {
+  const msgEl = document.getElementById('roadmap-access-message');
+  if (info && info.reason && info.reason !== 'not-a-partner' && info.reason !== 'lookup-failed') {
+    let text = 'Your account does not have access to Roadmap detail.';
+    if (info.reason === 'revoked') text = 'Your access has been revoked.';
+    if (info.reason === 'expired') text = 'Your access has expired.';
+    const links = (info.accessible || []).map(function(p) { return '<a href="' + p.href + '" style="color:#9a3412;text-decoration:underline;">' + p.label + '</a>'; }).join(', ');
+    text += links ? (' You have access to: ' + links + '.') : ' You do not currently have access to any pages. Contact hello@symaticslab.com.';
+    msgEl.innerHTML = text;
+    msgEl.style.display = 'block';
+  } else if (msgEl) {
+    msgEl.style.display = 'none';
+  }
+
+  document.getElementById('roadmap-gate-checking').style.display = 'none';
+  document.getElementById('roadmap-gate').style.display = 'block';
+  document.getElementById('roadmap-content').style.display = 'none';
+}
+
+async function loadRoadmapContent() {
+  const res = await sbFetchProtected('/.netlify/functions/roadmap-content');
+  if (!res || res.status !== 200) {
+    let info = null;
+    try { info = res ? await res.json() : null; } catch (e) {}
+    showRoadmapGate(info);
+    return;
+  }
+  const html = await res.text();
+  document.getElementById('roadmap-content').innerHTML = html;
+  { const s = await sbGetSession(); if (s && s.user) injectSessionBar(document.getElementById('roadmap-content'), s.user.email); }
+  document.getElementById('roadmap-gate').style.display = 'none';
+  document.getElementById('roadmap-gate-checking').style.display = 'none';
+  document.getElementById('roadmap-content').style.display = 'block';
+}
+
+document.getElementById('roadmap-login-open').addEventListener('click', async function() {
+  const email = document.getElementById('roadmap-email').value.trim();
+  const password = document.getElementById('roadmap-password-field').value;
+  const errEl = document.getElementById('roadmap-login-error');
+  errEl.style.display = 'none';
+  const { error } = await sbSignIn(email, password);
+  if (error) { errEl.textContent = error.message; errEl.style.display = 'block'; return; }
+  loadRoadmapContent();
+});
+
+(async function init() {
+  const session = await sbGetSession();
+  if (session) await loadRoadmapContent();
+  else showRoadmapGate();
+})();
+</script>
+
+</main>
+<footer class="site">
+<div class="wrap">
+<div class="ft-grid">
+<div class="ft-brand">
+<a class='brand' href='/home'><img alt="Symatics logo" src="images/logo.png"/> SYMATICS</a>
+<p>Architecture for<br/>persistent intelligence.</p>
+</div>
+<div class="ft-cols">
+<div class="ft-group">
+<div class="ft-label">PRODUCT</div>
+<div class="ft-links">
+<a href='/architecture'>Architecture</a>
+<a href='/technology'>Technology</a>
+<a href='/models'>Models</a>
+<a href='/specs'>Specs</a>
+<a href='/performance'>Performance</a>
+<a href='/landscape'>Landscape</a>
+<a href='/roadmap'>Roadmap</a>
+</div>
+</div>
+<div class="ft-group">
+<div class="ft-label">COMPANY</div>
+<div class="ft-links">
+<a href='/company'>Company</a>
+<a href='/team'>Team</a>
+<a href='/careers'>Careers</a>
+<a href='/singapore'>Singapore launch</a>
+<a href='/contact'>Contact</a>
+<a href='/events'>Events</a>
+</div>
+</div>
+</div>
+<div class="ft-right">
+<div class="ft-socials">
+<a aria-label="LinkedIn" href="https://linkedin.com/company/symatics" rel="noopener" target="_blank"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.6c0-1.34-.02-3.06-1.87-3.06-1.87 0-2.16 1.46-2.16 2.96V21h-4V9z"/></svg></a>
+<a aria-label="X" href="https://x.com/symaticscompute" rel="noopener" target="_blank"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M18.9 3H22l-7.2 8.2L22.6 21h-6.9l-5.4-6.6L4 21H1l7.7-8.8L1.4 3h7l4.9 6 5.6-6z"/></svg></a>
+</div>
+<p class="ft-copy">&#169; 2026 SYMATICS Pte. Ltd.<br/>All rights reserved.</p>
+</div>
+</div>
+<div class="ft-legal">
+<a href="/privacy">Privacy Policy</a>
+<a href="/terms">Terms of Use</a>
+</div>
+</div>
+</footer>

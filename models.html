@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="telephone=no, address=no, email=no" name="format-detection"/>
+<meta name="description" content="The model landscape beyond LLMs — reasoning models, diffusion LLMs, world models, state-space models, neural operators — and what each means for state-resident compute."/>
+<title>Symatics | Model Types — Beyond LLMs</title>
+<link href="images/logo.png" rel="icon" type="image/svg+xml"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+</head>
+<body class="models-page">
+<header class="site">
+<div class="wrap nav">
+<a class='brand' href='/home'><img alt="Symatics logo" src="images/logo.png"/> SYMATICS</a>
+<ul class="nav-links">
+<li><a href='/architecture'>Architecture</a></li>
+<li><a href='/technology'>Technology</a></li>
+<li><a href='/models'>Models</a></li>
+<li><a href='/specs'>Specs</a></li>
+<li><a href='/performance'>Performance</a></li>
+<li><a href='/landscape'>Landscape</a></li>
+<li><a href='/roadmap'>Roadmap</a></li>
+<li><a href='/company'>Company</a></li>
+<li><a href='/team'>Team</a></li>
+<li><a href='/careers'>Careers</a></li>
+<li><a href='/contact'>Contact</a></li>
+<li><a href='/events'>Events</a></li>
+</ul>
+<div class="nav-cta">
+<a class='btn btn-primary' href='/contact'>Get in touch
+        <svg fill="none" height="14" viewbox="0 0 16 16" width="14"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg>
+</a>
+<button aria-label="Toggle menu" class="nav-toggle" onclick="document.getElementById('mobile-menu').classList.toggle('open')">
+<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-width="1.8" viewbox="0 0 24 24" width="20"><path d="M3 6h18M3 12h18M3 18h18"></path></svg>
+</button>
+</div>
+</div>
+<div class="wrap">
+<div class="mobile-menu" id="mobile-menu">
+<a href='/architecture' onclick='document.getElementById(\'mobile-menu\').classList.remove(\'open\')'>Architecture</a>
+<a href='/technology' onclick='document.getElementById(\'mobile-menu\').classList.remove(\'open\')'>Technology</a>
+<a href='/models' onclick='document.getElementById(\'mobile-menu\').classList.remove(\'open\')'>Models</a>
+<a href='/specs' onclick='document.getElementById(\'mobile-menu\').classList.remove(\'open\')'>Specs</a>
+<a href='/performance' onclick='document.getElementById(\'mobile-menu\').classList.remove(\'open\')'>Performance</a>
+<a href='/landscape' onclick='document.getElementById(\'mobile-menu\').classList.remove(\'open\')'>Landscape</a>
+<a href='/roadmap' onclick='document.getElementById(\'mobile-menu\').classList.remove(\'open\')'>Roadmap</a>
+<a href='/company' onclick='document.getElementById(\'mobile-menu\').classList.remove(\'open\')'>Company</a>
+<a href='/team' onclick='document.getElementById(\'mobile-menu\').classList.remove(\'open\')'>Team</a>
+<a href='/careers' onclick='document.getElementById(\'mobile-menu\').classList.remove(\'open\')'>Careers</a>
+<a href='/contact' onclick='document.getElementById(\'mobile-menu\').classList.remove(\'open\')'>Contact</a>
+<a href='/events' onclick='document.getElementById(\'mobile-menu\').classList.remove(\'open\')'>Events</a>
+</div>
+</div>
+</header>
+<main class="models-page">
+<!-- HERO -->
+<section class="hero-overlay company-hero">
+<picture>
+<img alt="Render of a concrete wall with a lit path of blue cells climbing across it" class="hero-overlay-img" src="images/desktop/a-herowall-1599x984.png"/>
+</picture>
+<div class="wrap">
+<div class="hero-overlay-text">
+<div class="eyebrow">Model types</div>
+<h1>Beyond the LLM: <span class="accent">one architecture, many paradigms.</span></h1>
+<span class="blue-rule"></span>
+<p class="lead">The MPU is investigated for stateful and reasoning-intensive workloads — a class that extends well beyond today's autoregressive LLMs. This is the model landscape we design for: today's baselines, and the architectures arriving next. The list evolves as the field does.</p>
+</div>
+</div>
+</section>
+<!-- TABLE -->
+<section class="company-positioning-section company-positioning-approved" style="padding-top:64px;">
+<div class="wrap">
+<div class="eyebrow" style="color:#7C9BFF;margin-bottom:14px;">The landscape &middot; as of October 2026</div>
+<h2 style="color:#fff;font-size:clamp(20px,2.6vw,30px);font-weight:700;margin:0 0 28px;">Model types, and what each means for state-resident compute</h2>
+
+<div style="overflow-x:auto;">
+<table style="width:100%;border-collapse:collapse;font-size:13.5px;line-height:1.55;min-width:720px;">
+<thead>
+<tr style="text-align:left;">
+<th style="padding:12px 14px;color:#7C9BFF;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;border-bottom:1px solid #263252;">Model type</th>
+<th style="padding:12px 14px;color:#7C9BFF;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;border-bottom:1px solid #263252;">Example models</th>
+<th style="padding:12px 14px;color:#7C9BFF;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;border-bottom:1px solid #263252;">What sets it apart</th>
+<th style="padding:12px 14px;color:#7C9BFF;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;border-bottom:1px solid #263252;">Compute profile &mdash; MPU view</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="4" style="padding:16px 14px 6px;color:#9aa3b2;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;">Today&rsquo;s baselines</td>
+</tr>
+<tr style="background:#111726;">
+<td style="padding:14px;color:#fff;font-weight:600;border-bottom:1px solid #1c2440;">Autoregressive Transformer LLM</td>
+<td style="padding:14px;color:#a6b0c2;border-bottom:1px solid #1c2440;">GPT, Claude, Gemini, Llama, DeepSeek, Qwen</td>
+<td style="padding:14px;color:#a6b0c2;border-bottom:1px solid #1c2440;">Predicts the next token with self-attention over the full context; the dominant paradigm since 2017.</td>
+<td style="padding:14px;color:#a6b0c2;border-bottom:1px solid #1c2440;">Prefill is compute-bound; decode is memory-bandwidth-bound. KV-cache grows with context.</td>
+</tr>
+<tr>
+<td style="padding:14px;color:#fff;font-weight:600;border-bottom:1px solid #1c2440;">Reasoning LLM (test-time compute)</td>
+<td style="padding:14px;color:#a6b0c2;border-bottom:1px solid #1c2440;">OpenAI o-series, DeepSeek-R1, extended thinking</td>
+<td style="padding:14px;color:#a6b0c2;border-bottom:1px solid #1c2440;">RL-trained to think longer before answering; trades more inference tokens for accuracy on math, code and logic.</td>
+<td style="padding:14px;color:#a6b0c2;border-bottom:1px solid #1c2440;">Very decode-heavy; long outputs and a large KV-cache; bandwidth-bound.</td>
+</tr>
+<tr>
+<td colspan="4" style="padding:20px 14px 6px;color:#67e8f9;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;">Beyond LLMs &mdash; and what changes</td>
+</tr>
+<tr style="background:#111726;">
+<td style="padding:14px;color:#fff;font-weight:600;border-bottom:1px solid #1c2440;">Decision model</td>
+<td style="padding:14px;color:#a6b0c2;border-bottom:1px solid #1c2440;">Jev (TypeSafe AI)</td>
+<td style="padding:14px;color:#a6b0c2;border-bottom:1px solid #1c2440;">State plus typed questions in; a choice, score or calibrated probability out &mdash; no text generation.</td>
+<td style="padding:14px;color:#a6b0c2;border-bottom:1px solid #1c2440;">Single-pass, short-context, high-frequency; prefill-like and compute-bound, no decode loop.</td>
+</tr>
+<tr>
+<td style="padding:14px;color:#fff;font-weight:600;border-bottom:1px solid #1c2440;">Neural operator (physics foundation model)</td>
+<td style="padding:14px;color:#a6b0c2;border-bottom:1px solid #1c2440;">Accelerated Understanding</td>
+<td style="padding:14px;color:#a6b0c2;border-bottom:1px solid #1c2440;">Learns operators that map functions to functions; predicts physical phenomena across 3D space and time.</td>
+<td style="padding:14px;color:#a6b0c2;border-bottom:1px solid #1c2440;">FFT / spectral convolutions over huge grids; memory-capacity and bandwidth heavy.</td>
+</tr>
+<tr style="background:#111726;">
+<td style="padding:14px;color:#fff;font-weight:600;border-bottom:1px solid #1c2440;">Diffusion LLM</td>
+<td style="padding:14px;color:#a6b0c2;border-bottom:1px solid #1c2440;">Mercury (Inception Labs)</td>
+<td style="padding:14px;color:#a6b0c2;border-bottom:1px solid #1c2440;">Denoises a whole block of masked tokens in a few parallel passes instead of generating one token at a time.</td>
+<td style="padding:14px;color:#a6b0c2;border-bottom:1px solid #1c2440;">Parallel denoising; compute-bound and systolic-friendly, with far fewer serial steps.</td>
+</tr>
+<tr>
+<td style="padding:14px;color:#fff;font-weight:600;border-bottom:1px solid #1c2440;">Energy-based reasoning model</td>
+<td style="padding:14px;color:#a6b0c2;border-bottom:1px solid #1c2440;">Kona (Logical Intelligence)</td>
+<td style="padding:14px;color:#a6b0c2;border-bottom:1px solid #1c2440;">Learns an energy function over reasoning traces and finds solutions by minimizing it &mdash; full traces at once in latent space.</td>
+<td style="padding:14px;color:#a6b0c2;border-bottom:1px solid #1c2440;">Iterative latent-space optimization; compute-bound, small models.</td>
+</tr>
+<tr style="background:#111726;">
+<td style="padding:14px;color:#fff;font-weight:600;border-bottom:1px solid #1c2440;">JEPA world model</td>
+<td style="padding:14px;color:#a6b0c2;border-bottom:1px solid #1c2440;">V-JEPA 2, LeWorldModel (AMI Labs)</td>
+<td style="padding:14px;color:#a6b0c2;border-bottom:1px solid #1c2440;">Predicts abstract representations of video and sensor data rather than pixels or tokens &mdash; for physical understanding and planning.</td>
+<td style="padding:14px;color:#a6b0c2;border-bottom:1px solid #1c2440;">Video encoders plus predictors; vision-style compute with moderate memory.</td>
+</tr>
+<tr>
+<td style="padding:14px;color:#fff;font-weight:600;border-bottom:1px solid #1c2440;">Spatial / 3D world model</td>
+<td style="padding:14px;color:#a6b0c2;border-bottom:1px solid #1c2440;">Marble (World Labs)</td>
+<td style="padding:14px;color:#a6b0c2;border-bottom:1px solid #1c2440;">Generates persistent, explorable 3D worlds from text or images &mdash; spatial intelligence rather than language.</td>
+<td style="padding:14px;color:#a6b0c2;border-bottom:1px solid #1c2440;">3D generation and rendering; compute- and memory-heavy.</td>
+</tr>
+<tr style="background:#111726;">
+<td style="padding:14px;color:#fff;font-weight:600;border-bottom:1px solid #1c2440;">Liquid foundation model</td>
+<td style="padding:14px;color:#a6b0c2;border-bottom:1px solid #1c2440;">LFM, LFM2.5 (Liquid AI)</td>
+<td style="padding:14px;color:#a6b0c2;border-bottom:1px solid #1c2440;">Non-Transformer models derived from continuous-time neural networks; efficient on-device inference with a small memory footprint.</td>
+<td style="padding:14px;color:#a6b0c2;border-bottom:1px solid #1c2440;">Edge-optimized; low bandwidth with recurrent-style state.</td>
+</tr>
+<tr>
+<td style="padding:14px;color:#fff;font-weight:600;border-bottom:1px solid #1c2440;">State-space model (Mamba)</td>
+<td style="padding:14px;color:#a6b0c2;border-bottom:1px solid #1c2440;">Mamba, Cartesia Sonic</td>
+<td style="padding:14px;color:#a6b0c2;border-bottom:1px solid #1c2440;">Linear-time recurrent sequence model with selective state and no attention; constant memory per token.</td>
+<td style="padding:14px;color:#a6b0c2;border-bottom:1px solid #1c2440;">Scan / recurrence; bandwidth-light, with no KV-cache growth.</td>
+</tr>
+<tr style="background:#111726;">
+<td style="padding:14px;color:#fff;font-weight:600;">Hierarchical / recursive reasoning</td>
+<td style="padding:14px;color:#a6b0c2;">HRM (Sapient Intelligence), TRM (Samsung SAIL)</td>
+<td style="padding:14px;color:#a6b0c2;">Tiny networks that loop internally over latent state to refine answers &mdash; tens of millions of parameters.</td>
+<td style="padding:14px;color:#a6b0c2;">Tiny weights, many iterations; on-chip-SRAM friendly.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p style="font-size:12.5px;color:#7d879b;line-height:1.65;margin:22px 0 0;">Third-party models are independent examples for context &mdash; not endorsements, partnerships or benchmarks. Profiles are architectural characterizations, not measured results. This page is maintained as new model paradigms emerge.</p>
+</div>
+</section>
+<!-- CTA -->
+<section class="company-credibility-section company-credibility-approved">
+<div class="wrap">
+<div class="company-transition-band" style="background:#0a0e1a;border-radius:16px;align-items:center;">
+<div style="text-align:left;">
+<div class="eyebrow" style="color:#7C9BFF;margin-bottom:14px;">Why this matters</div>
+<h3 style="color:#fff;font-size:clamp(18px,2.8vw,32px);font-weight:700;line-height:1.15;margin:0 0 16px;text-align:left;">Different paradigms. One constant: <span class="accent">state.</span></h3>
+<p style="color:#a6b0c2;font-size:15px;line-height:1.65;margin:0;text-align:left;">Every paradigm above keeps some form of state at its center &mdash; KV-caches, latent traces, recurrent state, world representations. The MPU architecture is investigated around exactly this: state that stays resident, structured, and continuously available, whatever form the model takes.</p>
+</div>
+<a class='btn btn-primary' href='/contact' style="white-space:nowrap;">Discuss your workload
+            <svg fill="none" height="14" viewbox="0 0 16 16" width="14"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></a>
+</div>
+</div>
+</section>
+</main>
+<footer class="site">
+<div class="wrap">
+<div class="ft-grid">
+<div class="ft-brand">
+<a class='brand' href='/home'><img alt="Symatics logo" src="images/logo.png"/> SYMATICS</a>
+<p>Architecture for<br/>persistent intelligence.</p>
+</div>
+<div class="ft-cols">
+<div class="ft-group">
+<div class="ft-label">PRODUCT</div>
+<div class="ft-links">
+<a href='/architecture'>Architecture</a>
+<a href='/technology'>Technology</a>
+<a href='/models'>Models</a>
+<a href='/specs'>Specs</a>
+<a href='/performance'>Performance</a>
+<a href='/landscape'>Landscape</a>
+<a href='/roadmap'>Roadmap</a>
+</div>
+</div>
+<div class="ft-group">
+<div class="ft-label">COMPANY</div>
+<div class="ft-links">
+<a href='/company'>Company</a>
+<a href='/team'>Team</a>
+<a href='/careers'>Careers</a>
+<a href='/contact'>Contact</a>
+<a href='/events'>Events</a>
+<a href='/singapore'>Singapore launch</a>
+</div>
+</div>
+</div>
+<div class="ft-right">
+<div class="ft-socials">
+<a aria-label="LinkedIn" href="https://linkedin.com/company/symatics" rel="noopener" target="_blank"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.6c0-1.34-.02-3.06-1.87-3.06-1.87 0-2.16 1.46-2.16 2.96V21h-4V9z"/></svg></a>
+<a aria-label="X" href="https://x.com/symaticscompute" rel="noopener" target="_blank"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M18.9 3H22l-7.2 8.2L22.6 21h-6.9l-5.4-6.6L4 21H1l7.7-8.8L1.4 3h7l4.9 6 5.6-6z"/></svg></a>
+</div>
+<p class="ft-copy">&#169; 2026 SYMATICS Pte. Ltd.<br/>All rights reserved.</p>
+</div>
+</div>
+<div class="ft-legal">
+<a href="/privacy">Privacy Policy</a>
+<a href="/terms">Terms of Use</a>
+</div>
+</div>
+</footer>
+</body>
+</html>
